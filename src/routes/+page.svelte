@@ -92,7 +92,7 @@
       >
         <a
           href="/appointment"
-          class="rounded-md px-3 py-2 text-sm font-medium bg-purple-700 text-white hover:bg-purple-600 hover:text-white"
+          class="rounded-md px-3 py-2 text-sm font-medium bg-gradient-to-r from-cyan-400 to-green-400 text-white hover:bg-purple-600 hover:text-white"
           >+ AFSPRAAK MAKEN</a
         >
       </div>

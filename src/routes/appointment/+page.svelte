@@ -1,18 +1,6 @@
 <script>
-  let appointmentDate = "";
-  let appointmentTime = "";
-  let appointmentReason = "";
-
-  function submitAppointment() {
-    // Add your logic here to handle the appointment submission
-    // For example, you can send the appointment details to a server or store them locally
-    console.log("Appointment submitted!");
-    console.log("Date:", appointmentDate);
-    console.log("Time:", appointmentTime);
-    console.log("Reason:", appointmentReason);
-  }
-
   import logo from "$lib/img/ico/alphafull.png";
+  import Appointment from "../components/appointment.svelte";
 </script>
 
 <nav class="bg-white">
@@ -147,48 +135,7 @@
       To make an appointment, please fill out the form below:
     </p>
   </section>
-  <form
-    on:submit|preventDefault={submitAppointment}
-    class="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-6"
-  >
-    <div class="flex flex-col sm:col-span-3">
-      <label for="appointmentDate" class="text-lg">Datum:</label>
-      <input
-        type="date"
-        id="appointmentDate"
-        bind:value={appointmentDate}
-        required
-        class="border border-gray-300 rounded-md p-2"
-      />
-    </div>
-
-    <div class="flex flex-col sm:col-span-3">
-      <label for="appointmentTime" class="text-lg">Tijdstip:</label>
-      <input
-        type="time"
-        id="appointmentTime"
-        bind:value={appointmentTime}
-        required
-        class="border border-gray-300 rounded-md p-2"
-      />
-    </div>
-
-    <div class="flex flex-col sm:col-span-6">
-      <label for="appointmentReason" class="text-lg">Meer uitleg:</label>
-      <textarea
-        id="appointmentReason"
-        bind:value={appointmentReason}
-        class="border border-gray-300 rounded-md p-2"
-      ></textarea>
-    </div>
-
-    <button
-      type="submit"
-      class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded col-span-6"
-    >
-      Submit
-    </button>
-  </form>
+  <Appointment />
 </main>
 
 <style>
