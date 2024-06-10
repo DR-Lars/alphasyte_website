@@ -12,6 +12,7 @@
           class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
+          onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
         >
           <span class="absolute -inset-0.5"></span>
           <span class="sr-only">Open main menu</span>
@@ -58,7 +59,7 @@
       <div
         class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
       >
-        <div class="flex flex-shrink-0 items-center">
+        <div class="flex flex-shrink-0 sm:items-center">
           <img class="h-8 w-auto" src={logo} alt="AlphaSyte logo" />
         </div>
         <div class="hidden sm:ml-6 sm:block">
@@ -99,7 +100,7 @@
     </div>
 
     <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
+    <div class="hidden" id="mobile-menu">
       <div class="space-y-1 px-2 pb-3 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a
