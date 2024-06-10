@@ -1,9 +1,14 @@
 <script lang="ts">
-  import { DatePicker } from "stwui";
-  let appointmentDate = = new Date();
+  let appointmentDate = new Date();
+  let currentDate = appointmentDate.getDate();
+  let daysThisMonth = new Date(
+    appointmentDate.getFullYear(),
+    appointmentDate.getMonth() + 1,
+    0,
+  ).getDate();
   let appointmentTime = "";
   let appointmentReason = "";
-  let items = [...Array(31).keys()].map((i) => i + 1);
+  let dates = [...Array(daysThisMonth).keys()].map((i) => i + 1);
 
   function submitAppointment() {
     // Add your logic here to handle the appointment submission
@@ -15,18 +20,16 @@
   }
 </script>
 
-<form
-  on:submit|preventDefault={submitAppointment}
-  class="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-6"
->
-  <div class="flex flex-col sm:col-span-3">
-    <!-- agenda component -->
-    <div class="grid grid-cols-7 gap-1 gap-x-0">
-      <label for="appointmentDate" class="text-lg">Datum:</label>
-      {#each items as item}
-        <button class="bg-blue-600 rounded w-7">{item}</button>
-      {/each}
-    </div>
+<form class="grid grid-cols-1 gap-x-6 gap-y-3 sm:grid-cols-6">
+  <div class="grid grid-cols-7 gap-1 gap-x-0 col-span-6 sm:col-span-3">
+    <label for="appointmentDate" class="text-lg col-span-7">Datum:</label>
+    {#each dates as date}
+      {#if date < currentDate}
+        <button class="rounded bg-gray-200" disabled>{date}</button>
+      {:else}
+        <button class="rounded bg-lime-200">{date}</button>
+      {/if}
+    {/each}
   </div>
 
   <div class="flex flex-col sm:col-span-3">
@@ -50,6 +53,7 @@
   </div>
 
   <button
+    on:click={submitAppointment}
     type="submit"
     class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded col-span-6"
   >
