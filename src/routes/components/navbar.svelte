@@ -5,12 +5,13 @@
 
 <nav class="bg-white">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-    <div class="relative flex h-16 items-center justify-between">
-      <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-        <!-- Mobile menu button-->
+    <!-- Full screen menu -->
+    <div class="flex h-14 items-center justify-between">
+      <!-- Mobile menu button-->
+      <div class="flex-shrink-0 sm:hidden">
         <button
           type="button"
-          class="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+          class="relative rounded-md p-2 text-gray-400 hover:bg-gradient-to-l from-cyan-300 to-green-300 hover:text-white"
           aria-controls="mobile-menu"
           aria-expanded="false"
           onclick="document.getElementById('mobile-menu').classList.toggle('hidden')"
@@ -57,15 +58,14 @@
           </svg>
         </button>
       </div>
-      <div
-        class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start"
-      >
-        <div class="flex flex-shrink-0 sm:items-center">
-          <img class="h-8 w-auto" src={logo} alt="AlphaSyte logo" />
-        </div>
+      <!-- Logo -->
+      <div class="flex-shrink-0">
+        <img class="h-8" src={logo} alt="AlphaSyte logo" />
+      </div>
+      <!-- Desktop menu -->
+      <div class="flex-1 justify-start hidden sm:block">
         <div class="hidden sm:ml-6 sm:block">
           <div class="flex space-x-4">
-            <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a
               href="/"
               class="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 px-3 py-2 text-sm font-medium text-white"
@@ -89,9 +89,8 @@
           </div>
         </div>
       </div>
-      <div
-        class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-      >
+      <!-- Appointment button -->
+      <div class="flex-shrink-0 px-2">
         <a
           href="/appointment"
           class="rounded-md px-3 py-2 text-sm font-medium bg-gradient-to-r from-cyan-400 to-green-400 text-white hover:bg-purple-600 hover:text-white"
@@ -102,26 +101,26 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2">
+      <div class="grid grid-cols-2 gap-1 px-2 pb-2 pt-2">
         <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
         <a
           href="/"
-          class="block rounded-md bg-gray-900 px-3 py-2 text-base font-medium text-white"
-          aria-current="page">Home</a
+          class="block rounded-md px-3 py-2 bg-gradient-to-r from-cyan-400 to-green-400 text-white"
+          >Home</a
         >
         <a
           href="/appointment"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-l from-cyan-200 to-green-200 hover:text-white"
           >Afspraak</a
         >
         <a
           href="#"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-r from-cyan-200 to-green-200 hover:text-white"
           >None</a
         >
         <a
           href="#"
-          class="block rounded-md px-3 py-2 text-base font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
+          class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-l from-cyan-200 to-green-200 hover:text-white"
           >None</a
         >
       </div>
