@@ -1,6 +1,36 @@
-<script>
-  import logo from "$lib/img/ico/alphafull.png";
+<script lang="ts">
+  import { onMount } from "svelte";
+  import { page } from "$app/stores";
+  import logo from "$lib/img/ico/alphafull32px.png";
   //$page.url.pathname == item.route
+
+  var elements;
+  const loaded = (event) => {
+    elements = document.querySelectorAll("#navSelect *");
+    selectItem($page.url.pathname);
+  };
+
+  export function selectItem(url) {
+    elements.forEach((element) => {
+      if (element.getAttribute("href") === url) {
+        element.className = "";
+        element.className =
+          "rounded-md bg-gradient-to-r from-cyan-400 to-green-400 px-3 py-2 text-sm font-medium text-white";
+      } else {
+        element.className = "";
+        element.className =
+          "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gradient-to-r from-cyan-300 to-green-300 hover:text-white";
+      }
+    });
+  }
+
+  const selectHome = (event) => {
+    selectItem("/");
+  };
+
+  const selectAppointment = (event) => {
+    selectItem("/appointment");
+  };
 </script>
 
 <nav class="bg-white">
@@ -60,29 +90,29 @@
       </div>
       <!-- Logo -->
       <div class="flex-shrink-0">
-        <img class="h-8" src={logo} alt="AlphaSyte logo" />
+        <img class="h-8 w-auto" src={logo} alt="AlphaSyte logo" />
       </div>
       <!-- Desktop menu -->
-      <div class="flex-1 justify-start hidden sm:block">
+      <div class="flex-1 justify-start hidden sm:block" use:loaded>
         <div class="hidden sm:ml-6 sm:block">
-          <div class="flex space-x-4">
+          <div id="navSelect" class="flex space-x-4">
             <a
               href="/"
               class="rounded-md bg-gradient-to-r from-cyan-400 to-green-400 px-3 py-2 text-sm font-medium text-white"
-              aria-current="page">Home</a
+              on:click={selectHome}>Home</a
             >
             <a
               href="/appointment"
               class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gradient-to-l from-cyan-300 to-green-300 hover:text-white"
-              >Afspraak</a
+              on:click={selectAppointment}>Afspraak</a
             >
             <a
-              href="#"
+              href="/404"
               class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gradient-to-r from-cyan-300 to-green-300 hover:text-white"
               >None</a
             >
             <a
-              href="#"
+              href="/404"
               class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gradient-to-l from-cyan-300 to-green-300 hover:text-white"
               >None</a
             >
@@ -101,25 +131,24 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="hidden" id="mobile-menu">
-      <div class="grid grid-cols-2 gap-1 px-2 pb-2 pt-2">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
+      <div id="navSelect" class="grid grid-cols-2 gap-1 px-2 pb-2 pt-2">
         <a
           href="/"
           class="block rounded-md px-3 py-2 bg-gradient-to-r from-cyan-400 to-green-400 text-white"
-          >Home</a
+          on:click={selectHome}>Home</a
         >
         <a
           href="/appointment"
           class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-l from-cyan-200 to-green-200 hover:text-white"
-          >Afspraak</a
+          on:click={selectAppointment}>Afspraak</a
         >
         <a
-          href="#"
+          href="/404"
           class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-r from-cyan-200 to-green-200 hover:text-white"
           >None</a
         >
         <a
-          href="#"
+          href="/404"
           class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gradient-to-l from-cyan-200 to-green-200 hover:text-white"
           >None</a
         >
