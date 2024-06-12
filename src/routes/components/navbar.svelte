@@ -33,7 +33,7 @@
   };
 </script>
 
-<nav class="bg-white">
+<nav class="bg-white border-solid border-slate-100 border-b fixed z-50">
   <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
     <!-- Full screen menu -->
     <div class="flex h-14 items-center justify-between">
@@ -130,3 +130,9 @@
     </div>
   </div>
 </nav>
+
+<style>
+  nav {
+    width: 100%;
+  }
+</style>
