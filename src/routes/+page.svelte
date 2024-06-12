@@ -19,7 +19,7 @@
 
 <style>
   #homescreen section {
-    min-height: 40vh;
+    min-height: 50vh;
   }
 
   #homescreen section:nth-child(3n-1) {
