@@ -14,13 +14,12 @@
   <section class="relative flex flex-col items-center">
     <DividerWhite />
   </section>
-  <section class="relative flex flex-col items-center">
-  </section>
+  <section class="relative flex flex-col items-center"></section>
 </div>
 
 <style>
   #homescreen section {
-    min-height: 100vh;
+    min-height: 40vh;
   }
 
   #homescreen section:nth-child(3n-1) {
