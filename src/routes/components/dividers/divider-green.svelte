@@ -38,9 +38,10 @@
     display: block;
     width: calc(134% + 1.3px);
     height: 65px;
+    transform: rotateY(180deg);
   }
 
   div .shape-fill {
-    fill: #6ee7b7;
+    fill: #34d399;
   }
 </style>
