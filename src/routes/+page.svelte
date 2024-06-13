@@ -3,8 +3,10 @@
   import DividerGreen from "./components/dividers/divider-green.svelte";
   import DividerWhite from "./components/dividers/divider-white.svelte";
   import bgMain from "../lib/img/bg-main.webp";
+  import scrollDown from "../lib/img/scroll-down.svg";
   import { onMount } from "svelte";
   let keyword: string = " ";
+  let scrollOpacity: number = 1;
 
   onMount(() => {
     let currentIndex = 0;
@@ -63,18 +65,13 @@
         alpha
       </h1>
     </div>
-    <svg
-      class="absolute top-3/4 z-30 w-2/12 sm:w-1/12"
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 30"
-      fill="none"
-      x="0px"
-      y="0px"
-      ><path
-        d="M12 16.8C11.3 16.8 10.6 16.53 10.07 16L3.55002 9.48C3.26002 9.19 3.26002 8.71 3.55002 8.42C3.84002 8.13 4.32002 8.13 4.61002 8.42L11.13 14.94C11.61 15.42 12.39 15.42 12.87 14.94L19.39 8.42C19.68 8.13 20.16 8.13 20.45 8.42C20.74 8.71 20.74 9.19 20.45 9.48L13.93 16C13.4 16.53 12.7 16.8 12 16.8Z"
-        fill="black"
-      />
-    </svg>
+    <object
+      id="scrollDown"
+      class="absolute top-3/4 z-30 w-2/12 sm:w-14 bg-gradient-to-bl from-cyan-300 to-green-300 rounded-full"
+      type="image/svg+xml"
+      data={scrollDown}
+      aria-label="Scroll down"
+    ></object>
     <DividerBlue />
   </section>
   <section class="relative flex flex-col items-center">
@@ -87,6 +84,16 @@
 </div>
 
 <style>
+  .show {
+    opacity: 1;
+    transition: opacity 1s;
+  }
+
+  .hide {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+
   #homescreen section {
     min-height: 60vh;
   }
