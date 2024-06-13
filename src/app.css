@@ -4,5 +4,6 @@
 
 @font-face {
   font-family: "Bebas Neue";
+  font-display: swap;
   src: url(./lib/fnt/BebasNeue-Regular.woff2);
 }
