@@ -51,13 +51,8 @@
 </script>
 
 <div id="homescreen">
-  <section class="relative flex flex-col items-center">
-    <img
-      src={bgMain}
-      alt="Main background"
-      class="object-cover w-full h-full absolute"
-    />
-    <div id="title" class="z-10 rounded-xl p-4 mx-4 sm:mx-0 sm:my-1/6">
+  <section class="relative flex flex-col items-center -z-20">
+    <div id="title" class="-z-10 fixed rounded-xl p-4 mx-4 sm:mx-0 sm:my-1/6">
       <h1 class="font-bold text-zinc-200 m-t text-7xl text-justify">
         <p class="inline overflow-hidden text-justify w-full">Make your</p>
         <br class="sm:hidden" />
@@ -67,7 +62,7 @@
     </div>
     <object
       id="scrollDown"
-      class="absolute top-2/3 sm:top-3/4 z-30 w-2/12 sm:w-14 bg-gradient-to-bl from-cyan-300 to-green-300 rounded-full"
+      class="fixed -z-10 top-3/4 rotate-180 sm:rotate-0 sm:top-3/4 w-2/12 sm:w-14 bg-gradient-to-bl from-cyan-300 to-green-300 rounded-full"
       type="image/svg+xml"
       data={scrollDown}
       aria-label="Scroll down"
@@ -84,22 +79,17 @@
 </div>
 
 <style>
-  .show {
-    opacity: 1;
-    transition: opacity 1s;
-  }
-
-  .hide {
-    opacity: 0;
-    transition: opacity 1s;
-  }
-
   #homescreen section {
     min-height: 60vh;
   }
 
   #homescreen section:nth-child(1) {
-    height: 110vh;
+    background-image: url("../lib/img/bg-main.webp");
+    min-height: 110vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   #title {
