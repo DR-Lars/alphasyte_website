@@ -3,6 +3,53 @@
   import DividerGreen from "./components/dividers/divider-green.svelte";
   import DividerWhite from "./components/dividers/divider-white.svelte";
   import bgMain from "../lib/img/bg-main.webp";
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    const keyword = document.getElementById("keyword");
+    const keywords = ["site", "app", "shop", "idea"];
+    let currentIndex = 0;
+
+    function typeKeyword() {
+      const keyword = document.getElementById("keyword");
+      const keywords = [
+        "site",
+        "app",
+        "shop",
+        "idea",
+        "blog",
+        "work",
+        "code",
+        "tech",
+        "data",
+        "chat",
+        "form",
+      ];
+
+      if (currentIndex >= keywords.length) {
+        currentIndex = 0; // Reset currentIndex to 0 when it reaches the end
+      }
+
+      const currentKeyword = keywords[currentIndex];
+      let i = 0;
+
+      const intervalId = setInterval(() => {
+        keyword.textContent += currentKeyword[i];
+        i++;
+
+        if (i >= currentKeyword.length) {
+          clearInterval(intervalId);
+          setTimeout(() => {
+            keyword.textContent = "";
+            currentIndex++;
+            typeKeyword();
+          }, 2000);
+        }
+      }, 200);
+    }
+
+    typeKeyword();
+  });
 </script>
 
 <div id="homescreen">
@@ -12,9 +59,12 @@
       alt="Main background"
       class="object-cover w-full h-full absolute"
     />
-    <div id="title" class="z-10 rounded-xl p-4 mx-4 sm:mx-0">
+    <div id="title" class="z-10 rounded-xl p-4 mx-4 sm:mx-0 sm:my-1/6">
       <h1 class="font-bold text-zinc-200 m-t text-7xl text-justify">
-        make your <br /> site alpha
+        <p class="inline overflow-hidden text-justify w-full">Make your</p>
+        <br class="sm:hidden" />
+        <p id="keyword" class="inline"></p>
+        alpha
       </h1>
     </div>
     <DividerBlue />
@@ -49,6 +99,11 @@
     font-weight: 400;
     font-style: normal;
     padding-bottom: 0;
+    text-align: justify;
+    text-justify: inter-word;
+    text-align-last: center;
+    /* for IE9 */
+    -ms-text-align-last: center;
   }
 
   #homescreen section:nth-child(3n-1) {
