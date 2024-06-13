@@ -124,7 +124,8 @@
         <a
           href="/appointment"
           class="rounded-md px-3 py-2 text-sm font-medium bg-gradient-to-r from-cyan-400 to-green-400 text-white hover:bg-purple-600 hover:text-white"
-          >+ AFSPRAAK <p class="hidden sm:inline-block">MAKEN</p></a
+          ><strong class="text-lg font-semibold">+</strong> AFSPRAAK
+          <p class="hidden sm:inline-block">MAKEN</p></a
         >
       </div>
     </div>
