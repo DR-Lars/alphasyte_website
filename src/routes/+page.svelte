@@ -23,7 +23,6 @@
         "tech",
         "data",
         "chat",
-        "form",
       ];
 
       if (currentIndex >= keywords.length) {
@@ -34,16 +33,18 @@
       let i = 0;
 
       const intervalId = setInterval(() => {
-        keyword.textContent += currentKeyword[i];
-        i++;
+        if (keyword) {
+          keyword.textContent += currentKeyword[i];
+          i++;
 
-        if (i >= currentKeyword.length) {
-          clearInterval(intervalId);
-          setTimeout(() => {
-            keyword.textContent = "";
-            currentIndex++;
-            typeKeyword();
-          }, 2000);
+          if (i >= currentKeyword.length) {
+            clearInterval(intervalId);
+            setTimeout(() => {
+              keyword.textContent = "";
+              currentIndex++;
+              typeKeyword();
+            }, 2000);
+          }
         }
       }, 200);
     }
