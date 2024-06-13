@@ -67,7 +67,7 @@
     </div>
     <object
       id="scrollDown"
-      class="absolute top-3/4 z-30 w-2/12 sm:w-14 bg-gradient-to-bl from-cyan-300 to-green-300 rounded-full"
+      class="absolute top-2/3 sm:top-3/4 z-30 w-2/12 sm:w-14 bg-gradient-to-bl from-cyan-300 to-green-300 rounded-full"
       type="image/svg+xml"
       data={scrollDown}
       aria-label="Scroll down"
