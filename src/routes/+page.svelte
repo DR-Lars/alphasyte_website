@@ -1,17 +1,14 @@
-<script>
+<script lang="ts">
   import DividerBlue from "./components/dividers/divider-blue.svelte";
   import DividerGreen from "./components/dividers/divider-green.svelte";
   import DividerWhite from "./components/dividers/divider-white.svelte";
   import bgMain from "../lib/img/bg-main.webp";
   import { onMount } from "svelte";
+  let keyword: string = " ";
 
   onMount(() => {
-    const keyword = document.getElementById("keyword");
-    const keywords = ["site", "app", "shop", "idea"];
     let currentIndex = 0;
-
     function typeKeyword() {
-      const keyword = document.getElementById("keyword");
       const keywords = [
         "site",
         "app",
@@ -31,16 +28,15 @@
 
       const currentKeyword = keywords[currentIndex];
       let i = 0;
-
       const intervalId = setInterval(() => {
         if (keyword) {
-          keyword.textContent += currentKeyword[i];
+          keyword += currentKeyword[i];
           i++;
 
           if (i >= currentKeyword.length) {
             clearInterval(intervalId);
             setTimeout(() => {
-              keyword.textContent = "";
+              keyword = " ";
               currentIndex++;
               typeKeyword();
             }, 2000);
@@ -48,7 +44,6 @@
         }
       }, 200);
     }
-
     typeKeyword();
   });
 </script>
@@ -64,10 +59,22 @@
       <h1 class="font-bold text-zinc-200 m-t text-7xl text-justify">
         <p class="inline overflow-hidden text-justify w-full">Make your</p>
         <br class="sm:hidden" />
-        <p id="keyword" class="inline"></p>
+        <p class="inline">{keyword}</p>
         alpha
       </h1>
     </div>
+    <svg
+      class="absolute top-3/4 z-30 w-2/12 sm:w-1/12"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 30"
+      fill="none"
+      x="0px"
+      y="0px"
+      ><path
+        d="M12 16.8C11.3 16.8 10.6 16.53 10.07 16L3.55002 9.48C3.26002 9.19 3.26002 8.71 3.55002 8.42C3.84002 8.13 4.32002 8.13 4.61002 8.42L11.13 14.94C11.61 15.42 12.39 15.42 12.87 14.94L19.39 8.42C19.68 8.13 20.16 8.13 20.45 8.42C20.74 8.71 20.74 9.19 20.45 9.48L13.93 16C13.4 16.53 12.7 16.8 12 16.8Z"
+        fill="black"
+      />
+    </svg>
     <DividerBlue />
   </section>
   <section class="relative flex flex-col items-center">
