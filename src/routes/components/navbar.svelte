@@ -132,7 +132,10 @@
 
     <!-- Mobile menu, show/hide based on menu state. -->
     <div class="hidden" id="mobile-menu">
-      <div id="navSelect" class="grid grid-cols-2 gap-1 px-2 pb-2 pt-2">
+      <div
+        id="navSelect"
+        class="grid grid-cols-2 gap-1 px-2 pb-2 pt-2 sm:hidden"
+      >
         <a href="/" on:click={selectHome}>Home</a>
         <a href="/appointment" on:click={selectAppointment}>Afspraak</a>
         <a href="/404">None</a>
