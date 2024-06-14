@@ -25,7 +25,7 @@
 <style>
   div {
     position: absolute;
-    bottom: 0;
+    bottom: -2px;
     left: 0;
     width: 100%;
     overflow: hidden;
